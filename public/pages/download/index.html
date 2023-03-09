@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Download CyberLand</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #010101 url("bg.png") no-repeat center 14px;
+            background-size: 375px auto;
+            position: relative;
+        }
+
+        h1 {
+            margin-top: 78px;
+            font-size: 24px;
+            height: 30px;
+            line-height: 30px;
+            color: #fefefe;
+            text-align: center;
+        }
+
+        p {
+            font-size: 13px;
+            color: #a8a8a8;
+            line-height: 20px;
+            margin: 24px 46px 0;
+            hyphens: auto;
+        }
+
+        #ios {
+            display: none;
+        }
+
+        #android {
+            display: block;
+        }
+
+        .btn {
+            position: absolute;
+            top: 542px;
+            width: 100%;
+            padding-bottom: 50px;
+        }
+
+        a {
+            width: 220px;
+            height: 50px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 50px;
+            color: #FAFAFA;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 2px #ffffff solid;
+            background: #010101;
+        }
+    </style>
+</head>
+<body>
+    <h1>Download CyberLand</h1>
+    <p>The meaning of Web3 in CyberLand is: decentralized ID (DID) + Payment Tool (Asset Wallet) + Social (Encrypted Chat+DAO Moments). It mainly solves three problems: users, assets and connections,and it provides the basis for DeFi and NFTs.</p>
+    <div class="btn">
+        <a id="ios" href="https://api-link.cybergames.me/download/ios">Download</a>
+        <a id="android" href="https://api-link.cybergames.me/download/android">Download</a>
+    </div>
+</body>
+<script type="text/javascript">
+    if (navigator.userAgent.indexOf('iPhone') > -1) {
+        document.getElementById('ios').style.display = 'block';
+        document.getElementById('android').style.display = 'none';
+    }
+</script>
+</html>

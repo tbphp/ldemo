@@ -1,0 +1,90 @@
+{
+    "name": "cyberlink/backend",
+    "type": "project",
+    "description": "The Cyber Link backend service.",
+    "keywords": [
+        "Cyber Link",
+        "laravel"
+    ],
+    "license": "",
+    "require": {
+        "php": "^7.4",
+        "ext-bcmath": "*",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-openssl": "*",
+        "ext-pcntl": "*",
+        "ext-pdo": "*",
+        "ext-redis": "*",
+        "ext-zlib": "*",
+        "alibabacloud/dysmsapi-20170525": "^1.0",
+        "alibabacloud/sts-20150401": "^1.0",
+        "bensampo/laravel-enum": "^3.3",
+        "doctrine/dbal": "^3.2",
+        "fideloper/proxy": "^4.4",
+        "fruitcake/laravel-cors": "^2.0",
+        "guzzlehttp/guzzle": "^7.0.1",
+        "hhxsv5/laravel-s": "~3.7.0",
+        "iidestiny/laravel-filesystem-oss": "^2.1",
+        "laravel/framework": "^8.12",
+        "laravel/tinker": "^2.5",
+        "maatwebsite/excel": "^3.1",
+        "pragmarx/google2fa": "^8.0",
+        "predis/predis": "^1.1",
+        "simplito/elliptic-php": "^1.0",
+        "symfony/console": "5.2.6",
+        "tymon/jwt-auth": "^1.0",
+        "xingwenge/canal_php": "^1.0",
+        "yangjisen/laravel-cache-provider": "^3.0",
+        "ext-gmp": "*"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.9.1",
+        "laravel/sail": "^1.0.1",
+        "mockery/mockery": "^1.4.2",
+        "nunomaduro/collision": "^5.0",
+        "phpunit/phpunit": "^9.3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        },
+        "files": [
+            "app/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "platform": {
+            "php": "7.4"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

@@ -1,0 +1,596 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc {
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0));
+}
+
+
+
+</style><title>服务协议</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><p><span>本协议条款（“服务条款”）适用于您与CyberLand之间的关系。关于您使用CyberLand的聊天、钱包、NFT和相关服务（“服务”）。本服务的使用也受CyberLand的其他相关政策的管辖，这些政策通过引用并入本文。</span></p><p><span>在访问或使用服务（包括浏览任何CyberLand网站或相关内容）之前，您必须同意这些服务条款。可能会为您创建一个用于使用服务的客户帐户，您也可能需要在服务上注册一个帐户（统称为“帐户”）。通过使用或注册帐户或以其他方式使用服务，您确认您已达到居住国法定成年年龄。如果您不是，您的法定监护人必须审查并同意这些服务条款。</span></p><p><span>CyberLand保留随时通过在服务上发布修订条款来更改、修改、添加或删除本服务条款及其其他相关CyberLand政策的权利。您继续使用服务将被视为已接受此类更改。如果您在任何时候不同意我们当时版本的服务条款的任何部分、与您使用服务有关的任何其他CyberLand政策、规则或行为准则，您使用服务的权利将立即终止，您必须立即停止使用服务。</span></p><p><strong><span>1.使用服务</span></strong></p><p><span>1.1.您使用服务的权利</span></p><p><span>在您同意并继续遵守这些服务条款和任何其他相关CyberLand政策的前提下，您有非排他性、不可转让、不可再许可、可撤销和有限的权利访问和使用服务用于您自己的非商业娱乐目的。您同意不将服务用于任何其他目的。</span></p><p><span>以下限制适用于服务的使用：</span></p><p><span>1.1.1您对未成年人未经授权使用本服务承担全部责任。您对未成年人使用您的信用卡或其他支付工具（如Paypal）负责。</span></p><p><span>1.1.2您不得（或试图）购买、出售、出租或赠送您的账户，使用虚假身份或信息创建账户，或代表您以外的其他人。如果您之前被CyberLand移除，或之前被禁止玩任何CyberLand应用，则不应使用该服务。</span></p><p><span>1.1.3您不得使用本服务向任何人宣传、招揽或传播任何商业广告，包括连锁信、垃圾邮件或垃圾邮件或重复或误导性信息。</span></p><p><span>1.2 登录信息和您的帐户</span></p><p><span>您可能需要为您的帐户连接加密货币钱包，或者您也可以使用其他凭据访问帐户（“登录信息”）。您不得共享账户或钱包种子信息，也不得让任何其他人访问您的账户或做任何可能危及您账户安全的事情。如果您意识到或合理怀疑任何违反安全的行为，包括但不限于登录信息的丢失、被盗或未经授权的泄露，您必须立即通知CyberLand并修改您的登录信息。您全权负责维护登录信息的机密性，并且您将负责登录信息的所有使用，包括购买，无论是否经您授权。您对通过您的帐户发生的任何事情负责。</span></p><p><span>1.3 钱包地址、私钥和备份功能</span></p><p><span>与钱包相关的某些信息的加密备份可以存储在符合条件的设备上。私钥与钱包地址相关联，它们可以一起用于授权数字资产向该钱包地址的转移。您对您的私钥和与钱包相关的任何助记符短语（“秘密短语”）的保留和安全全权负责。您必须确保您的钱包地址、密码短语和私钥访问信息的安全。备份您的私钥、备份短语或密码非常重要。否则，可能会导致与您的钱包相关的数字资产失去控制。您承认并同意，我们不会接收或存储您的钱包密码、加密私钥、未加密私钥或与您的钱包相关的密码短语。如果您忘记了原始密码，我们将无法为您的钱包生成新密码。如果您没有安全地存储钱包中保存的任何钱包地址和私钥对的备份，您接受并承认您与该钱包地址关联的任何数字资产将无法访问。因此，如果您因任何原因无法访问您的钱包，包括但不限于您未能保护您的钱包地址、密码短语和私钥信息的安全，我们将不承担任何责任。</span></p><p><span>1.4 数字资产交易</span></p><p><span>为了完成所有拟议的数字资产交易，必须对其进行确认并记录在数字资产相关的公共区块链中。此类网络是由独立第三方支持的分散式对等网络，我们不拥有、控制或运营这些网络。我们对区块链网络没有控制权，因此，我们不能也不能确保您通过我们的服务提交的任何交易细节都将得到确认和处理。通过使用CyberLand，您承认并同意：（i）我们无权取消或以其他方式修改您的交易；（ii）适用的区块链网络可能无法完成您提交的交易详细信息，或可能严重延迟您提交的详细信息；（iii）我们不存储、发送或接收数字资产；以及（iv）与任何数字资产相关的任何转让发生在相关区块链网络上，而不是我们拥有的网络上，因此我们不保证任何数字资产的所有权或权利的转让。</span></p><p><span>1.5 使用限制</span></p><p><span>严格禁止任何违反这些使用限制的服务使用，可能会导致您的有限权利立即被撤销，并可能使您承担违法责任。</span></p><p><span>您同意在任何情况下都不会：</span></p><p><span>从事CyberLand认为与服务精神或意图相冲突的任何行为，或不当使用CyberLand的支持服务。</span></p><p><span>使用或参与（直接或间接）使用欺诈、漏洞利用、自动化软件、模拟器、机器人、黑客、MOD或任何未经授权的第三方软件，以修改或干扰服务、任何CyberLand应用或任何CyberLand应用体验。</span></p><p><span>未经CyberLand明确书面同意，修改或导致修改服务或任何CyberLand应用的任何文件。</span></p><p><span>中断、干扰或以其他方式对服务的正常流动产生不利影响，或以其他可能对其他用户使用服务或玩CyberLand应用时的体验产生负面影响的方式行事。这包括获胜交易和任何其他类型的排名操纵，利用服务中的错误获得对其他玩家的不公平优势，以及任何其他故意滥用或违反服务设计的行为。</span></p><p><span>中断、过载，或协助或协助中断或过载任何用于提供或支持服务或任何CyberLand使用环境的计算机或服务器。</span></p><p><span>发起、协助或参与任何类型的攻击，包括但不限于传播病毒、对服务的拒绝服务攻击，或其他试图扰乱服务或任何其他人使用或享受服务的行为。</span></p><p><span>试图通过除CyberLand提供的用户界面之外的任何方式未经授权访问他人注册或使用的服务、帐户或连接到服务的计算机、服务器或网络，包括但不限于通过规避或修改、试图规避或修改或鼓励或协助任何其他人规避或修改，作为服务一部分的任何安全、技术、设备或软件。</span></p><p><span>发布任何辱骂、威胁、淫秽、诽谤、诽谤、种族、性、宗教或其他令人反感或冒犯的信息，或从事持续的有害行为，例如在未经请求的基础上重复发布信息。</span></p><p><span>发布任何包含裸体、过度暴力、冒犯性主题或包含此类内容链接的信息。</span></p><p><span>试图或骚扰、虐待或伤害，或鼓吹或煽动骚扰、虐待、伤害他人或团体，包括CyberLand员工，包括Cyber Land的客户服务代表。</span></p><p><strong><span>2.所有权</span></strong></p><p><span>2.1应用和服务</span></p><p><span>所有权利，服务的所有权和权益（包括但不限于任何应用、标题、计算机代码、主题、对象、角色、角色名称、故事、对话、流行语、概念、艺术品、动画、声音、音乐作品、视听效果、操作方法、道德权利、文档、应用内聊天记录、角色简介信息、使用CyberLand应用客户端进行的记录，以及e CyberLand应用客户端和服务器软件）归CyberLand所有。CyberLand保留与其应用和服务相关的所有权利，包括但不限于所有知识产权或其他专有权利。</span></p><p><span>2.2.虚拟内容</span></p><p><span>CyberLand拥有、已获得许可或以其他方式拥有使用服务或CyberLand应用中出现的所有内容的权利。尽管本协议中有任何相反规定，您同意您无权或拥有服务中出现的任何内容，包括但不限于任何CyberLand应用中出现或起源的虚拟物品、内容、功能、商品、服务或货币，无论是在应用中获得的还是从CyberLand购买的，或与账户相关联或存储在服务上的任何其他属性。</span></p><p><strong><span>3.用户内容</span></strong></p><p><span>3.1.用户内容的提交</span></p><p><span>“用户内容”是指您通过CyberLand应用客户端或服务上传或传输的任何通信、图像、声音以及所有材料、数据和信息，或其他用户上传或传输，包括但不限于任何聊天文本。通过在使用服务时传输或提交任何用户内容，您确认、陈述并保证此类传输或提交是（a）准确的、非机密的或误导性的；（b） 不违反任何法律、合同限制或其他第三方权利，并且您已获得用户内容中包含个人信息或知识产权的任何第三方的许可；（c） 无病毒、广告软件、间谍软件、蠕虫或其他恶意代码；以及（d）您承认并同意，CyberLand将始终根据其其他政策处理此类内容中的任何个人信息。</span></p><p><span>3.2.您的CyberLand许可证</span></p><p><span>您特此向CyberLand授予不可撤销、永久、可转让、全额付清、免版税的全球许可（包括向第三方再许可和转让的权利）以及复制、复制、修复、改编、修改、创建衍生作品、制造、商业化、出版、分发、销售、许可、再许可、转让、租赁、传输、公开展示、公开表演、，或提供电子访问、广播、通过电信与公众沟通、显示、表演、进入计算机存储器、以任何方式使用和实践您的用户内容以及与我们提供服务相关的所有修改和衍生作品，包括服务的营销和推广。您还特此授予CyberLand授权他人行使本服务条款授予CyberLand的任何权利的权利。您在此进一步授予CyberLand无条件、不可撤销的权利，使用和利用您的姓名、肖像以及任何用户内容中包含的任何其他信息或材料，而无需对您承担任何义务。除非法律禁止，否则无论您的用户内容是否以任何方式更改或更改，您都放弃您在用户内容中可能拥有的任何归属权和/或任何道德权利。CyberLand不会对您的用户内容主张任何所有权，这些服务条款中的任何内容都不会限制您使用和利用用户内容的任何权利。CyberLand没有义务监控或强制执行您在用户内容中的知识产权。</span></p><p><span>3.3.用户交互</span></p><p><span>您应全权负责与服务的其他用户以及通过服务和/或CyberLand应用与您互动的任何其他方的互动。CyberLand保留以任何方式卷入这些争议的权利，但没有义务。您将与CyberLand充分合作，调查任何可疑的非法、欺诈或不当活动，包括但不限于允许CyberLand访问您帐户的任何受密码保护的部分。</span></p><p><span>如果您与一个或多个用户存在争议，您将免除我们（以及我们的高级职员、董事、代理人、子公司、合资企业和员工）因此类争议而产生的或以任何方式与之相关的任何类型和性质的索赔、要求和损害（实际和间接的）。</span></p><p><strong><span>4.采购条款</span></strong></p><p><span>4.1采购</span></p><p><span>在服务中，您可以使用“真实世界”货币购买有限的、个人的、不可转让、不可再许可、可撤销的使用权（a）虚拟货币，包括但不限于虚拟现金，所有这些都用于CyberLand应用；（b） 应用内项目、内容或特征；以及（c）其他商品或服务（a–c点统称为“虚拟物品”）。您只能通过服务从我们或我们的授权合作伙伴处购买虚拟物品，不得以任何其他方式购买。</span></p><p><span>CyberLand可随时管理、监管、控制、修改或消除虚拟物品，无论是否另行通知。如果CyberLand行使任何此类权利，CyberLand不对您或任何第三方承担任何责任。除非服务中明确授权，否则禁止转让虚拟物品。除服务中明确授权外，您不得向任何个人或实体出售、购买、赎回或以其他方式转让虚拟物品，或尝试上述任何行为，包括但不限于CyberLand、其他用户或任何第三方。</span></p><p><strong><span>5.服务更新</span></strong></p><p><span>您知道服务是一个不断发展的服务。CyberLand可能要求您接受服务更新以及您在设备或计算机上安装的CyberLand应用更新。您承认并同意CyberLand可以在通知或不通知您的情况下更新服务和CyberLand应用。您可能需要不时更新第三方软件，以便接收服务和使用CyberLand应用。</span></p><p><strong><span>6.可分割性</span></strong></p><p><span>您和CyberLand同意，如果任何具有管辖权的法院发现本服务条款的任何部分全部或部分不合法或不可执行，仅在确定无效或不可执行的范围内无效，不影响其在任何其他方式或司法管辖区的有效性或可执行性，也不影响条款的其他规定，该条款应继续完全有效。</span></p><p><strong><span>7.总则</span></strong></p><p><span>7.1.转让</span></p><p><span>无论您是否同意，CyberLand均可随时将本服务条款全部或部分转让或委托给任何个人或实体。未经CyberLand事先书面同意，您不得转让或委托服务条款下的任何权利或义务，您未经授权的转让和委托无效。</span></p><p><span>7.2.补充政策</span></p><p><span>CyberLand可能会发布与特定服务相关的其他政策，如论坛、竞赛或忠诚度计划。您使用此类服务的权利受这些特定政策和服务条款的约束。</span></p><p><span>7.3.完整协议</span></p><p><span>本服务条款、任何补充政策和通过引用明确纳入本协议的任何文件包含您和CyberLand的全部理解，并取代本协议各方先前就本协议标的达成的所有理解，无论是电子的、口头的还是书面的，或是由习惯、惯例、政策或先例确立的，您和我们之间关于服务的协议。</span></p><p><span>7.4.无弃权</span></p><p><span>CyberLand未能要求或强制要求您严格履行本服务条款的任何规定，或未能行使本服务条款项下的任何权利，不得解释为放弃或放弃CyberLand在该等或任何其他情况下主张或依赖任何此类规定或权利的权利。</span></p><p><span>CyberLand明确放弃本服务条款的任何规定、条件或要求，不构成放弃未来遵守该等规定、条件和要求的义务。除非本服务条款中明确规定，否则CyberLand的任何陈述、声明、同意、弃权或其他作为或不作为均不得被视为对本服务条款的修改，也不具有法律约束力，除非您和CyberLand正式任命的官员以书面形式签署书面文件。</span></p><p><span>7.5.不可抗力</span></p><p><span>CyberLand不对因CyberLand合理控制之外的原因导致的任何延迟或未能履行承担责任，包括但不限于因不可预见的情况或CyberLand无法控制的原因（如天灾、战争、恐怖主义、暴乱、禁运、民事或军事当局的行为、火灾、洪水、事故、罢工、，或运输设施、燃料、能源、劳动力或材料短缺。</span></p></div></div>
+</body>
+</html>
